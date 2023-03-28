@@ -25,15 +25,15 @@ useradd kevin -c "Kevin Thomas" -m -s /bin/bash -p $(openssl passwd -6 senha123)
 useradd gary -c "Gary Matthews" -m -s /bin/bash -p $(openssl passwd -6 senha123) -G GRP_SEC
 
 #Ao entrar no server, os usuários precisam criar suas própias senhas ao invés de usarem a padronizada
-USERS="brenda seth laura"
+USERS="brenda seth laura john robert sarah kayla kevin gary"
 for user in $USERS
 do
   #Define a expiração da senha para o próximo login
   chage -d 0 $user
 done
 
-echo "Especificando Permissões..."
 #Determina dono e grupo dos diretórios
+echo "Especificando Permissões..."
 chown root:GRP_ADM /adm
 chown root:GRP_VEN /ven
 chown root:GRP_SEC /sec
